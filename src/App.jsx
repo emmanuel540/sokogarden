@@ -6,17 +6,15 @@ import Addproduct from './components/Addproduct';
 import Getproducts from './components/Getproducts';
 import Mpesapayment from './components/Mpesapayment';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import Footer from './components/Footer';
+import Navbar from './components/Navbar';
+
 
 const App = () => {
   return(
       <BrowserRouter>
         {/* navigation goes here  */}
-        <nav className='bg-primary text-center p-2'>
-          <Link to="/" className='btn btn-dark text-light m-2'>Get Products</Link>
-          <Link to="/signup" className='btn btn-dark text-light m-2'>Signup</Link>
-          <Link to="/signin" className='btn btn-dark text-light m-2'>Signin</Link>
-          <Link to="/addproduct" className='btn btn-dark text-light m-2'>Add Products</Link>
-        </nav>
+        <Navbar/>
 
         {/* routes goes here  */}
         <Routes>
@@ -26,6 +24,9 @@ const App = () => {
           <Route path='/addproduct' element={<Addproduct/>} />
           <Route path='/mpesapayment' element={<Mpesapayment/>}/>
         </Routes>
+
+        {/* footer goes here  */}
+          <Footer />
       </BrowserRouter>
   )
 }

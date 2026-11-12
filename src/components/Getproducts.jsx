@@ -14,7 +14,7 @@ const Getproducts = () =>{
     const fetchallproducts = async() =>{
         setLoading("Fetching products...")
         try {
-            const response = await axios.get("http://emmanuelmodcom.alwaysdata.net/getproducts")
+            const response = await axios.get("https://emmanuelmodcom.alwaysdata.net/getproducts")
             setProducts(response.data)
             setLoading("")
         } catch (error) {
@@ -28,7 +28,7 @@ const Getproducts = () =>{
         fetchallproducts()
     }, [])
     console.log(products)
-    const imagepath= "http://emmanuelmodcom.alwaysdata.net/static/images/"
+    const imagepath= "https://emmanuelmodcom.alwaysdata.net/static/images/"
     return(
         <div className="row">
             {/* carousel goes here  */}
