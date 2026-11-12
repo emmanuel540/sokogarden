@@ -6,7 +6,7 @@ const Footer = () => {
         <section className="row bg-primary text-light p-4">
             <div className="col-md-4">
                 <h2 className='text-dark'>About Us</h2>
-                <p>At Fruitcart, we believe healthy living begins with fresh choices. We are passionate about bringing nature's goodness closer to you through a wide selection of fresh, delicious and nutritious fruits. Shop with us and enjoy freshness in every bite!</p>
+                <p>At AgroCart, we believe healthy living begins with fresh choices. We are passionate about bringing nature's goodness closer to you through a wide selection of fresh, delicious and nutritious fruits. Shop with us and enjoy freshness in every bite!</p>
             </div>
             <div className="col-md-4">
                 <h2 className='text-dark'>Contact Us</h2>
