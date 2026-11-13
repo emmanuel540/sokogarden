@@ -15,6 +15,7 @@ const Navbar = () => {
         <a class="nav-link text-white" href="/addproduct">Add Products</a>
         <a class="nav-link text-white" href="/signin">Signin</a>
         <a class="nav-link text-white" href="/signup">Signup</a>
+        <a class="nav-link text-white" href="/videos">Videos</a>
       </div>
     </div>
   </div>
