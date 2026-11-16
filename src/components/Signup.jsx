@@ -16,6 +16,8 @@ const Signup = () => {
   const [success,setSuccess]=useState("")
   const [error,setError]=useState("")
 
+  const [strength, setStrength] = useState("")
+
 // function to host data
 const handlesubmit= async (e)=>{
   e.preventDefault()
@@ -40,6 +42,20 @@ const handlesubmit= async (e)=>{
   }
 
 }
+
+
+      const checkPasswordStrength = (password) => {
+        if (password.length < 4){
+          setStrength("Weak");
+        }else if (password.length < 8){
+          setStrength("Medium");
+        }else{
+          setStrength("Strong")
+        }
+      };
+
+
+
   return (
     <div className='justify-content-center row mt-3'>
       <div className='col-md-6 p-4 card shadow'>
@@ -54,7 +70,19 @@ const handlesubmit= async (e)=>{
       {/* email goes here */}
      <input type='email' required className="form-control" placeholder='📩 Enter email' onChange={(e)=>setEmail(e.target.value)}/><br />
      {/* password goes here */}
-     <input type='password' required className="form-control" placeholder=' 🔑 Enter password' onChange={(e)=>setPassword(e.target.value)}/><br />
+     <input type='password' required className="form-control" placeholder=' 🔑 Enter password' onChange={(e)=> { setPassword(e.target.value);
+      checkPasswordStrength(e.target.value);
+     }}/><br />
+
+     {Password && (
+      <p style={{color: 
+        strength === "Weak"
+        ? "red"
+        :strength === "Medium"
+        ? "orange"
+        : "green",
+      }}>Password Strength: {strength}</p>
+     )}
      {/* phone goes here */}
      <input type='tel' required className="form-control" placeholder=' 📱 Enter phone' onChange={(e)=>setPhone(e.target.value)}/><br />
      <button type="submit" className='btn btn-primary w-100'>Signup 👥</button>

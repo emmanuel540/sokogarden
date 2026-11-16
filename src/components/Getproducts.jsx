@@ -16,6 +16,9 @@ const Getproducts = () =>{
     //which category button is currently selected 
     const [selectedCategory, setSelectedCategory] = useState("All")
 
+    //how many products are visible right now
+    const [visibleCount, setVisibleCount] = useState(8)
+
     let navigate = useNavigate();
     // fucntion to get products 
     const fetchallproducts = async() =>{
@@ -45,6 +48,8 @@ const Getproducts = () =>{
     (selectedCategory === "All" || item.product_category === selectedCategory)
     )
 
+    //only the first visibleCount products of the filtered list
+    const visibleProducts = filteredProducts.slice(0, visibleCount)
 
     const imagepath= "https://emmanuelmodcom.alwaysdata.net/static/images/"
     return(
@@ -76,7 +81,7 @@ const Getproducts = () =>{
                     </div>
                 </div>
 
-                {filteredProducts.map(singleproduct=>(
+                {visibleProducts.map(singleproduct=>(
                     <div className="col-md-3 mb-2">
                         <div className="card shadow">
                             <img src={imagepath + singleproduct.product_photo} alt=""  height={300}/>
@@ -91,8 +96,10 @@ const Getproducts = () =>{
                     </div>
                 ))}
 
-                {filteredProducts.length === 0  && (
-                    <p className="text-center text-danger">No products found</p>
+                {visibleCount < filteredProducts.length && (
+                    <div className="text-center mb-4">
+                        <button className="btn btn-primary px-5" onClick={() => setVisibleCount(visibleCount + 8)}>Load More</button>
+                    </div>
                 )}
             </section>
             </div>
